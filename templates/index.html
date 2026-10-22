@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e0e5ec">
+    <meta name="description" content="Plan thoughtful trips with TripZen, your multi-agent travel planner.">
+    <title>TripZen — Your next trip, thoughtfully planned</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="ambient-art" aria-hidden="true">
+        <div class="ambient-orbit orbit-one"></div>
+        <div class="ambient-orbit orbit-two"></div>
+        <div class="ambient-orbit orbit-three"></div>
+        <div class="ambient-sun"></div>
+    </div>
+
+    <header class="site-header">
+        <a class="brand" href="#" aria-label="TripZen home">
+            <span class="brand-mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                    <path d="M5 19.2 26.6 5.8c1.1-.7 2.4.5 1.7 1.7L14.9 29l-3.1-8.1L5 19.2Z" fill="currentColor" />
+                    <path d="m11.8 20.9 8.6-8.5" stroke="#E0E5EC" stroke-width="1.8" stroke-linecap="round" />
+                </svg>
+            </span>
+            <span class="brand-copy"><strong>Trip<span>Zen</span></strong><small>Travel, thoughtfully
+                    planned</small></span>
+        </a>
+        <div class="header-status"><span class="status-dot"></span><span>AI planner ready</span></div>
+    </header>
+
+    <main class="app-container">
+        <section class="hero-section">
+            <div class="hero-copy">
+                <div class="eyebrow"><span class="eyebrow-icon">✦</span> YOUR PERSONAL AI TRAVEL TEAM</div>
+                <h1>Your next great<br><span>story starts here.</span></h1>
+                <p class="hero-description">From the first flight search to the last sunset, turn your travel ideas into
+                    a considered itinerary with your multi-agent AI planner.</p>
+                <div class="hero-proof">
+                    <span class="proof-icon" aria-hidden="true">✈</span>
+                    <span>Flights</span><i></i><span>Stays</span><i></i><span>Day-by-day plans</span>
+                </div>
+            </div>
+            <div class="hero-visual" aria-label="Illustration of a travel destination">
+                <div class="visual-label label-top"><span class="label-pin">⌖</span><span><b>Somewhere
+                            wonderful</b><small>Your next destination</small></span></div>
+                <div class="landscape">
+                    <div class="landscape-sun"></div>
+                    <div class="mountain mountain-back"></div>
+                    <div class="mountain mountain-front"></div>
+                    <div class="landscape-water"></div>
+                    <div class="water-line water-line-one"></div>
+                    <div class="water-line water-line-two"></div>
+                    <div class="landscape-foreground"></div>
+                </div>
+                <div class="visual-label label-bottom"><span class="label-spark">✧</span><span><b>Made around
+                            you</b><small>Budget · pace · interests</small></span></div>
+            </div>
+        </section>
+
+        <section class="planner-card" aria-labelledby="plannerTitle">
+            <div class="section-kicker"><span>01</span> THE TRIP BRIEF</div>
+            <div class="card-header">
+                <div>
+                    <h2 id="plannerTitle">Where will we take you?</h2>
+                    <p>Tell us what you have in mind. Your AI travel team will work out the details.</p>
+                </div>
+                <div class="system-pill"><span class="status-dot"></span> System online</div>
+            </div>
+
+            <div class="input-area">
+                <label class="sr-only" for="userInput">Describe your trip</label>
+                <textarea id="userInput" rows="4"
+                    placeholder="Plan a 4-day Singapore trip from India, including flights, hotels, local food and sightseeing..."
+                    spellcheck="true"></textarea>
+                <div class="input-footer">
+                    <span class="input-hint"><span aria-hidden="true">↳</span> Include your origin, dates, budget, or
+                        travel style</span>
+                    <button id="sendBtn" class="primary-btn" type="button" onclick="sendMessage()">
+                        <span class="btn-plane" aria-hidden="true">✈</span>
+                        <span id="btnText">Build my itinerary</span>
+                        <span id="btnLoader" class="loader hidden" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="prompt-heading"><span>NEED A LITTLE INSPIRATION?</span><span class="prompt-heading-line"></span>
+            </div>
+            <div class="quick-prompts">
+                <button type="button" class="prompt-chip"
+                    onclick="setPrompt('Plan a complete 4 days Japan trip from India including flights, hotels and sightseeing under 2 lakhs.')"><span
+                        class="chip-emoji">🌸</span><span><b>Japan in 4 days</b><small>Culture & city
+                            lights</small></span><span class="chip-arrow">↗</span></button>
+                <button type="button" class="prompt-chip"
+                    onclick="setPrompt('Plan a 3 days Dubai trip from Delhi with flights, hotels and sightseeing.')"><span
+                        class="chip-emoji">🌇</span><span><b>Dubai escape</b><small>3 days of
+                            discovery</small></span><span class="chip-arrow">↗</span></button>
+                <button type="button" class="prompt-chip"
+                    onclick="setPrompt('Plan a 4 days Thailand trip from Delhi with budget hotels and sightseeing.')"><span
+                        class="chip-emoji">🌴</span><span><b>Thailand getaway</b><small>Beaches & budget
+                            stays</small></span><span class="chip-arrow">↗</span></button>
+                <button type="button" class="prompt-chip" onclick="setPrompt('Give me all country flight info.')"><span
+                        class="chip-emoji">🌍</span><span><b>Explore flight options</b><small>Think beyond
+                            borders</small></span><span class="chip-arrow">↗</span></button>
+            </div>
+            <p class="privacy-note"><span aria-hidden="true">✦</span> The more context you share, the more tailored your
+                plan can be.</p>
+        </section>
+
+        <section id="resultSection" class="result-section hidden" aria-labelledby="resultTitle" aria-live="polite">
+            <div class="result-topline">
+                <div class="section-kicker"><span>02</span> YOUR PERSONALIZED PLAN</div><span class="result-ready"><span
+                        class="status-dot"></span> Plan generated</span>
+            </div>
+            <div class="result-header">
+                <div>
+                    <h2 id="resultTitle">Your journey, mapped out.</h2>
+                    <p id="threadInfo">Trip session · Thread ID: -</p>
+                </div>
+                <div class="result-actions">
+                    <button class="secondary-btn copy-btn" type="button" onclick="copyResult()"><span
+                            aria-hidden="true">▣</span> Copy plan</button>
+                    <button class="primary-btn download-btn" type="button" onclick="downloadPDF()"><span
+                            aria-hidden="true">↓</span> Download PDF</button>
+                </div>
+            </div>
+            <div class="result-summary-strip" aria-label="Plan highlights">
+                <div><span class="summary-icon">✧</span><span><small>BUILT AROUND</small><b>Your preferences</b></span>
+                </div>
+                <div><span class="summary-icon">⌖</span><span><small>TRIP DETAILS</small><b>Flights, stays &
+                            more</b></span></div>
+                <div><span class="summary-icon">▤</span><span><small>READY TO KEEP</small><b>Copy or export</b></span>
+                </div>
+            </div>
+            <div id="pdfContent" class="pdf-content">
+                <div class="pdf-heading">
+                    <div class="pdf-brand-mark">✈</div>
+                    <div>
+                        <p class="pdf-eyebrow">YOUR TripZen ITINERARY</p>
+                        <h1 class="pdf-title">Your travel plan</h1>
+                    </div>
+                </div>
+                <div id="resultBox" class="result-box"></div>
+                <p class="pdf-footnote">Prepared with TripZen · Please verify prices, schedules, visa requirements,
+                    and booking conditions before travel.</p>
+            </div>
+        </section>
+
+        <section id="errorBox" class="error-box hidden" role="alert"></section>
+
+        <section class="how-section" aria-labelledby="howTitle">
+            <div class="section-kicker"><span>03</span> A BETTER WAY TO PLAN</div>
+            <div class="how-heading">
+                <h2 id="howTitle">Less planning stress.<br><span>More looking forward.</span></h2>
+                <p>A thoughtful trip comes together one good decision at a time.</p>
+            </div>
+            <div class="how-grid">
+                <article class="how-card">
+                    <div class="how-icon">⌕</div><span class="how-number">01 / DISCOVER</span>
+                    <h3>Find your way</h3>
+                    <p>Explore flight options and places that fit your destination, dates, and budget.</p>
+                </article>
+                <article class="how-card">
+                    <div class="how-icon">⌂</div><span class="how-number">02 / SETTLE IN</span>
+                    <h3>Choose your stay</h3>
+                    <p>Bring accommodation ideas, location, and comfort into one travel plan.</p>
+                </article>
+                <article class="how-card">
+                    <div class="how-icon">✧</div><span class="how-number">03 / EXPERIENCE</span>
+                    <h3>Make every day count</h3>
+                    <p>Turn your interests into a practical day-by-day itinerary you can take with you.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer"><a class="footer-brand" href="#">Trip<span>AI</span></a>
+        <p>Thoughtful travel starts with a good plan.</p>
+        <div class="footer-stack">FASTAPI <i></i> LANGGRAPH <i></i> GROQ <i></i> TAVILY <i></i> AVIATIONSTACK</div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <!-- Keep your existing API-integrated script.js so sendMessage, setPrompt, copyResult and downloadPDF remain intact. -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
