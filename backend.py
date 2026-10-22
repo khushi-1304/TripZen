@@ -151,6 +151,7 @@ def final_agent(state: TravelState):
         - Be clear and practical.
         - Mention that live flight API may not provide ticket prices if pricing is unavailable.
         - Keep the response useful for real travel planning.
+        - Do not generate numbered section headings.
     """
 
     response = llm.invoke([
